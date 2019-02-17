@@ -9,6 +9,12 @@ const listSchema = new mongoose.Schema({
     },
     quantity: {
         type: Number
+    },
+    unity: {
+        type: String
+    },
+    idIngredient: {
+        type: String
     }
 });
 
@@ -20,6 +26,8 @@ function validateList(List) {
     const schema = {
         title: Joi.string().min(2).max(255).required(),
         quantity: Joi.number().min(0).max(2000).required(),
+        unity: Joi.string(),
+        idIngredient: Joi.string().min(2).max(255).required(),
 
     };
     return Joi.validate(List, schema);

@@ -39,6 +39,8 @@ router.post('/', (async (req, res) => {
     const list = new List({
         title: req.body.title,
         quantity: req.body.quantity,
+        unity: req.body.unity,
+        idIngredient: req.body.idIngredient
     });
 
     await list.save();
@@ -51,6 +53,8 @@ router.put('/:id', (async (req, res) => {
     const list = await List.findByIdAndUpdate(req.params.id, {
         title: req.body.title,
         quantity: req.body.quantity,
+        unity: req.body.unity,
+        idIngredient: req.body.idIngredient
     }, {
         new: true
     });

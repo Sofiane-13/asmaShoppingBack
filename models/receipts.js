@@ -2,13 +2,16 @@ const mongoose = require('mongoose');
 const Joi = require('joi');
 
 const ingeredientsSchema = new mongoose.Schema({
-    name: {
+    title: {
         type: String
     },
     quantity: {
         type: Number
     },
     unity: {
+        type: String
+    },
+    idIngredient: {
         type: String
     }
 });
@@ -47,9 +50,10 @@ const Receipt = mongoose.model('Receipt', receiptSchema);
 
 function validateReceipt(receipt) {
     const ingredientShema = Joi.object({
-        name: Joi.string().min(2).max(255).required(),
+        title: Joi.string().min(2).max(255).required(),
         quantity: Joi.number().min(0).max(5000),
         unity: Joi.string(),
+        idIngredient: Joi.string().min(2).max(255).required(),
     });
     const genreShema = Joi.object({
         title: Joi.string().min(2).max(255).required(),
