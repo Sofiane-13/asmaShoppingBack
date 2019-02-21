@@ -28,6 +28,14 @@ router.delete('/:id', (async (req, res) => {
     res.send(list);
 }));
 
+router.delete('/', (async (req, res) => {
+    const list = await List.remove({});
+
+    if (!list) return res.status(404).send("I can not delete ALL");
+
+    res.send(list);
+}));
+
 router.post('/', (async (req, res) => {
     console.log(req.body);
     const {

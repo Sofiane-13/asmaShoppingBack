@@ -70,4 +70,15 @@ router.put('/:id', (async (req, res) => {
     res.send(receipt);
 }));
 
+router.put('/', (async (req, res) => {
+
+    const receipt = await Receipt.updateMany({
+        liked: false
+    });
+
+    if (!receipt) return res.status(404).send('The receipt with the given ID was not found.');
+
+    res.send(receipt);
+}));
+
 module.exports = router;
