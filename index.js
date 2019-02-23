@@ -9,5 +9,5 @@ mongoose.connect(
 const app = express();
 
 require("./startup/routes")(app);
-
-app.listen(8080, () => console.log("Listning on 8080 ..."));
+const port = process.env.PORT || config.get("port");
+app.listen(port, () => console.log(`Listning on ${port} ...`));
