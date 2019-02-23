@@ -9,5 +9,5 @@ mongoose.connect(
 const app = express();
 
 require("./startup/routes")(app);
-const port = process.env.PORT || config.get("port");
+const port = process.env.PORT || "3000";
 app.listen(port, () => console.log(`Listning on ${port} ...`));
