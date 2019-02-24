@@ -44,6 +44,7 @@ router.post('/', (async (req, res) => {
     console.log(error);
     if (error) return res.status(400).send(error.details[0].message);
 
+
     const list = new List({
         title: req.body.title,
         quantity: req.body.quantity,
@@ -67,7 +68,7 @@ router.put('/:id', (async (req, res) => {
         new: true
     });
 
-    if (!list) return res.status(404).send('The list with the given ID was not found.');
+    //if (!list) return res.status(404).send('The list with the given ID was not found.');
 
     res.send(list);
 }));
